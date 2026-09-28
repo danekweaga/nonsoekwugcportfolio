@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Nonso — Tech UGC Creator</title>
+<meta content="Nonso is a tech and AI UGC creator making product demos, short-form videos, and useful tech stories for apps people want to use." name="description"/>
+<meta content="#F7F6F2" name="theme-color"/>
+<style>
+:root{
+  --paper:#F7F6F2;
+  --ink:#252A2C;
+  --muted:#626B70;
+  --line:#D9D9D1;
+  --shade:#E9EBE8;
+  --stone:#E7E0D7;
+  --accent:#2F6F6A;
+  --accent-2:#C86B45;
+  --white:#fff;
+  --card:#FDFCF9;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(900px 420px at 100% 0%, rgba(47,111,106,.08), transparent 55%),
+    radial-gradient(700px 380px at 0% 30%, rgba(200,107,69,.06), transparent 50%),
+    var(--paper);
+  color:var(--ink);
+  font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.container{max-width:1260px;margin:auto;padding:0 54px}
+
+.site-nav{height:82px;border-bottom:1px solid var(--line);background:rgba(247,246,242,.92);backdrop-filter:blur(8px)}
+.site-nav .container{height:100%;display:flex;align-items:center;justify-content:space-between}
+.wordmark{font-size:24px;font-weight:850;letter-spacing:-1.8px;text-decoration:none}
+.wordmark span{color:var(--accent)}
+.navlinks{display:flex;align-items:center;gap:32px}
+.navlinks a{text-decoration:none;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:750}
+.navlinks .nav-cta{padding:12px 18px;border:1px solid var(--ink);border-radius:4px}
+.navlinks .nav-cta:hover{background:var(--ink);color:var(--paper)}
+
+.tiny{font-size:11px;text-transform:uppercase;letter-spacing:.16em;font-weight:780;color:var(--muted)}
+.eyebrow{display:flex;gap:9px;align-items:center}
+.dot{width:8px;height:8px;background:var(--accent-2);border-radius:50%;display:inline-block}
+
+.hero{display:grid;grid-template-columns:1.1fr .78fr;gap:clamp(40px,7vw,100px);align-items:stretch;padding-top:80px;padding-bottom:92px}
+.hero-copy{align-self:center}
+.hero h1{font-size:clamp(58px,6.3vw,93px);font-weight:770;letter-spacing:-.085em;line-height:.99;max-width:840px;margin:31px 0 32px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero-lead{font-size:19px;line-height:1.55;color:#4e565a;max-width:530px;margin:0 0 38px}
+.hero-buttons{display:flex;flex-wrap:wrap;gap:12px}
+.btn{font-weight:750;font-size:13px;letter-spacing:.02em;text-decoration:none;padding:17px 23px;border-radius:5px;display:inline-flex;gap:12px;justify-content:space-between;align-items:center;transition:transform .16s,background .16s,border-color .16s,color .16s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--ink);color:var(--paper);border:1px solid var(--ink)}
+.btn-primary:hover{background:var(--accent);border-color:var(--accent)}
+.btn-secondary{border:1px solid var(--line);background:transparent}
+.btn-secondary:hover{border-color:var(--accent-2);color:var(--accent-2)}
+.btn-accent{background:var(--accent-2);color:var(--white);border:1px solid var(--accent-2)}
+.btn-accent:hover{background:#b45d3a;border-color:#b45d3a}
+.hero-note{border-top:1px solid var(--line);margin-top:58px;padding-top:20px;display:flex;gap:15px;flex-wrap:wrap}
+.hero-note span{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:650}
+
+.portrait-card{background:#e4e1da;position:relative;min-height:565px;max-height:670px;overflow:hidden;border-radius:6px;box-shadow:11px 11px 0 rgba(47,111,106,.14)}
+.portrait-card img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 43%;aspect-ratio:3/4}
+.portrait-tag{position:absolute;bottom:20px;left:20px;background:rgba(247,246,242,.93);padding:12px 14px;border-radius:3px;font-size:12px;font-weight:750;letter-spacing:.06em}
+
+.band{background:linear-gradient(90deg,rgba(47,111,106,.08),rgba(200,107,69,.07));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.band-in{display:flex;align-items:center;justify-content:space-between;gap:32px;padding-top:24px;padding-bottom:24px}
+.band strong{font-size:13px;font-weight:750}
+.band .band-rows{display:flex;gap:28px;flex-wrap:wrap}
+.band-rows span{color:var(--muted);font-size:12px;font-weight:650;letter-spacing:.04em}
+
+.section{padding-top:88px;padding-bottom:72px}
+.section-head{margin-bottom:32px}
+.section-head h2,.about h2,.contact h2,.work-cta h2{font-size:clamp(43px,5.2vw,70px);line-height:1.03;letter-spacing:-.065em;margin:14px 0 0;font-weight:760}
+
+.work-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.video-card{background:var(--card);border:1px solid var(--line);border-radius:7px;overflow:hidden;min-width:0;display:flex;flex-direction:column}
+.video-window{height:auto;min-height:520px;position:relative;background:#ebebe7;overflow:visible;display:flex;justify-content:center;align-items:flex-start;padding:9px}
+.video-window iframe{display:block;border:0;width:100%;height:670px;min-height:670px;background:#ebebe7}
+.video-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 18px;margin-top:auto;border-top:1px solid var(--line);flex-wrap:wrap}
+.likes{font-size:15px;font-weight:780;letter-spacing:-.02em;color:var(--ink)}
+.likes span{color:var(--accent-2)}
+.video-bottom a{font-size:12px;font-weight:760;text-underline-offset:3px;color:var(--accent)}
+.video-bottom a:hover{color:var(--accent-2)}
+.disclaimer{font-size:12px;color:var(--muted);line-height:1.6;margin:20px 0 0}
+
+.work-cta{padding:48px 0 88px;text-align:center}
+.work-cta p{color:var(--muted);font-size:16px;margin:0 0 22px}
+.work-cta .contact-actions{justify-content:center}
+
+.about{padding-top:80px;padding-bottom:90px;background:var(--stone);border-top:1px solid #d9d1c8;border-bottom:1px solid #d9d1c8}
+.two-up{display:grid;grid-template-columns:1fr 1fr;gap:11vw}
+.about h2{margin-top:16px}
+.about p{font-size:18px;line-height:1.62;color:#55565a;max-width:550px;margin:0 0 20px}
+.about p strong{color:var(--ink)}
+.about .fine{font-size:13px;margin-top:24px}
+
+.contact{padding-top:100px;padding-bottom:100px}
+.contact h2{max-width:880px;margin-bottom:35px}
+.contact-actions{display:flex;gap:12px;flex-wrap:wrap}
+
+.foot{border-top:1px solid var(--line);padding-top:25px;padding-bottom:25px;display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:11px;letter-spacing:.05em}
+
+@media(max-width:1050px){
+  .container{padding:0 32px}
+  .hero{grid-template-columns:1fr .8fr;gap:34px}
+  .hero h1{font-size:clamp(56px,6.5vw,70px)}
+  .portrait-card{min-height:470px}
+  .video-window iframe{height:640px;min-height:640px}
+}
+@media(max-width:700px){
+  .container{padding:0 20px}
+  .site-nav{height:68px}
+  .wordmark{font-size:22px}
+  .navlinks{gap:15px}
+  .navlinks a{font-size:10px}
+  .navlinks .nav-cta{padding:10px 12px;font-size:10px}
+  .navlinks .about-nav{display:none}
+  .hero{display:flex;flex-direction:column;gap:35px;padding-top:54px;padding-bottom:58px}
+  .hero h1{font-size:clamp(56px,13vw,84px);margin:23px 0 26px;letter-spacing:-.075em}
+  .hero-lead{font-size:16px;margin-bottom:27px}
+  .hero-note{margin-top:39px}
+  .portrait-card{min-height:0;max-height:580px;width:100%;box-shadow:7px 7px 0 rgba(47,111,106,.14)}
+  .portrait-card img{aspect-ratio:4/4.5;object-position:center 40%}
+  .band-in{align-items:start;flex-direction:column;padding-top:23px;padding-bottom:23px}
+  .band-rows{gap:10px 20px!important}
+  .section{padding-top:64px;padding-bottom:48px}
+  .section-head h2,.about h2,.contact h2,.work-cta h2{font-size:clamp(44px,10vw,64px)}
+  .work-grid{grid-template-columns:1fr;gap:17px}
+  .video-window{min-height:490px}
+  .video-window iframe{height:640px;min-height:640px}
+  .work-cta{padding:32px 0 64px}
+  .two-up{grid-template-columns:1fr;gap:26px}
+  .about{padding-top:65px;padding-bottom:65px}
+  .about p{font-size:16px}
+  .contact{padding-top:70px;padding-bottom:70px}
+  .foot{flex-direction:column}
+}
+@media(max-width:360px){
+  .container{padding-left:16px;padding-right:16px}
+  .navlinks a:first-child{display:none}
+}
+</style>
+</head>
+<body>
+<header class="site-nav">
+  <div class="container">
+    <a aria-label="Nonso home" class="wordmark" href="#top">nonso<span>.</span></a>
+    <nav aria-label="Main navigation" class="navlinks">
+      <a href="#work">Work</a>
+      <a class="about-nav" href="#about">About</a>
+      <a class="nav-cta" href="#contact">Let's talk ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero container">
+    <div class="hero-copy">
+      <div class="tiny eyebrow"><span class="dot"></span> Tech + AI UGC creator</div>
+      <h1>I make complicated apps <em>make sense.</em></h1>
+      <p class="hero-lead">Short-form UGC, app walkthroughs, and clear tech storytelling for products people actually want to use.</p>
+      <div class="hero-buttons">
+        <a class="btn btn-primary" href="#work">Watch my work <span aria-hidden="true">↗</span></a>
+        <a class="btn btn-secondary" href="#contact">Work with me <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="hero-note">
+        <span>CS student</span>
+        <span>Software builder</span>
+        <span>Tech creator</span>
+      </div>
+    </div>
+    <div class="portrait-card">
+      <img alt="Nonso, tech creator, wearing a blue striped shirt" fetchpriority="high" src="nonso-portrait.jpg" width="900" height="1200"/>
+      <div class="portrait-tag">NONSO / @nonsocodes_</div>
+    </div>
+  </section>
+
+  <div class="band">
+    <div class="container band-in">
+      <strong>Niches</strong>
+      <div class="band-rows">
+        <span>AI tools</span>
+        <span>Software</span>
+        <span>Student life</span>
+        <span>Product demos</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="section container" id="work">
+    <div class="section-head">
+      <span class="tiny">Selected work</span>
+      <h2>Top-performing Reels.</h2>
+    </div>
+    <div class="work-grid">
+      <article class="video-card">
+        <div class="video-window">
+          <iframe class="social-frame" title="Instagram Reel 1" src="https://www.instagram.com/reel/DbvrB1IOv96/embed/" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <div class="video-bottom">
+          <p class="likes"><span>207</span> likes</p>
+          <a href="https://www.instagram.com/reel/DbvrB1IOv96/" rel="noopener noreferrer" target="_blank">Watch ↗</a>
+        </div>
+      </article>
+
+      <article class="video-card">
+        <div class="video-window">
+          <iframe class="social-frame" title="Instagram Reel 2" src="https://www.instagram.com/reel/Dc9oMSPJhnv/embed/" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <div class="video-bottom">
+          <p class="likes"><span>170</span> likes</p>
+          <a href="https://www.instagram.com/reel/Dc9oMSPJhnv/" rel="noopener noreferrer" target="_blank">Watch ↗</a>
+        </div>
+      </article>
+
+      <article class="video-card">
+        <div class="video-window">
+          <iframe class="social-frame" title="Instagram Reel 3" src="https://www.instagram.com/reel/DcyzWRQpir0/embed/" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <div class="video-bottom">
+          <p class="likes"><span>161</span> likes</p>
+          <a href="https://www.instagram.com/reel/DcyzWRQpir0/" rel="noopener noreferrer" target="_blank">Watch ↗</a>
+        </div>
+      </article>
+
+      <article class="video-card">
+        <div class="video-window">
+          <iframe class="social-frame" title="Instagram Reel 4" src="https://www.instagram.com/reel/DbLPiaKRPZk/embed/" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <div class="video-bottom">
+          <p class="likes"><span>157</span> likes</p>
+          <a href="https://www.instagram.com/reel/DbLPiaKRPZk/" rel="noopener noreferrer" target="_blank">Watch ↗</a>
+        </div>
+      </article>
+    </div>
+    <p class="disclaimer">Like counts shown as reported; Instagram embeds may require their player to load.</p>
+  </section>
+
+  <section class="work-cta container" aria-label="Contact after work">
+    <p>Like what you see?</p>
+    <div class="contact-actions">
+      <a class="btn btn-accent" href="#contact">Let's talk ↗</a>
+      <a class="btn btn-secondary" href="https://www.instagram.com/nonsocodes_/" rel="noopener noreferrer" target="_blank">Message on Instagram ↗</a>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container two-up">
+      <div>
+        <span class="tiny">About</span>
+        <h2>Not just reading a feature list.</h2>
+      </div>
+      <div>
+        <p><strong>I'm Nonso — a CS student, software builder, and creator.</strong> I make direct, conversational videos about AI, coding, apps, and student life.</p>
+        <p>I use the tools, build with them, and turn what actually matters into content people can follow.</p>
+        <p class="fine">Halifax, Canada · @nonsocodes_</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact container" id="contact">
+    <span class="tiny">Contact</span>
+    <h2>Got a product worth explaining?</h2>
+    <div class="contact-actions">
+      <a class="btn btn-primary" href="https://www.instagram.com/nonsocodes_/" rel="noopener noreferrer" target="_blank">Let's collaborate on Instagram ↗</a>
+      <a class="btn btn-secondary" href="#work">See the Reels again ↗</a>
+    </div>
+  </section>
+</main>
+
+<footer class="container foot">
+  <span>© Nonso · Tech UGC portfolio</span>
+  <span>Built to show the work, not invent the numbers.</span>
+</footer>
+</body>
+</html>

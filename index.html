@@ -102,7 +102,11 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-off
 .about .fine{font-size:13px;margin-top:24px}
 
 .contact{padding-top:100px;padding-bottom:100px}
-.contact h2{max-width:880px;margin-bottom:35px}
+.contact h2{max-width:880px;margin-bottom:24px}
+.contact-details{display:flex;flex-direction:column;gap:10px;margin:0 0 28px}
+.contact-details a{font-size:18px;font-weight:650;letter-spacing:-.02em;text-decoration:none;color:var(--ink)}
+.contact-details a:hover{color:var(--accent)}
+.contact-details .label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.14em;font-weight:780;color:var(--muted);margin-bottom:4px}
 .contact-actions{display:flex;gap:12px;flex-wrap:wrap}
 
 .foot{border-top:1px solid var(--line);padding-top:25px;padding-bottom:25px;display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:11px;letter-spacing:.05em}
@@ -268,9 +272,20 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-off
   <section class="contact container" id="contact">
     <span class="tiny">Contact</span>
     <h2>Got a product worth explaining?</h2>
+    <div class="contact-details">
+      <div>
+        <span class="label">Email</span>
+        <a href="mailto:nonsoekwsocials@gmail.com">nonsoekwsocials@gmail.com</a>
+      </div>
+      <div>
+        <span class="label">Phone</span>
+        <a href="tel:+15066508130">+1 (506) 650-8130</a>
+      </div>
+    </div>
     <div class="contact-actions">
-      <a class="btn btn-primary" href="https://www.instagram.com/nonsocodes_/" rel="noopener noreferrer" target="_blank">Let's collaborate on Instagram ↗</a>
-      <a class="btn btn-secondary" href="#work">See the Reels again ↗</a>
+      <a class="btn btn-primary" href="mailto:nonsoekwsocials@gmail.com">Email me ↗</a>
+      <a class="btn btn-accent" href="tel:+15066508130">Call / text ↗</a>
+      <a class="btn btn-secondary" href="https://www.instagram.com/nonsocodes_/" rel="noopener noreferrer" target="_blank">Instagram ↗</a>
     </div>
   </section>
 </main>

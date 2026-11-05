@@ -130,7 +130,8 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-off
 .editing-style,.teamily-ad{margin-top:56px;padding-top:40px;border-top:1px solid var(--line)}
 .editing-style .section-head,.teamily-ad .section-head{margin-bottom:24px}
 .editing-style .section-head p,.teamily-ad .section-head p{color:var(--muted);font-size:15px;line-height:1.5;max-width:36rem;margin:12px 0 0}
-.editing-style .work-grid,.teamily-ad .work-grid{grid-template-columns:minmax(0,1fr);max-width:560px}
+.editing-style .work-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.teamily-ad .work-grid{grid-template-columns:minmax(0,1fr);max-width:560px}
 .teamily-ad .video-window,
 #work .video-card .video-window:has(video){min-height:0;padding:0;background:#111}
 .teamily-ad video,
@@ -354,16 +355,31 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-off
       <div class="section-head">
         <span class="tiny">Recent editing style</span>
         <h2>Current cut &amp; pacing.</h2>
-        <p>A recent Reel that shows how I edit now — separate from the top-performing picks above.</p>
+        <p>Recent cuts that show how I edit now — separate from the top-performing picks above.</p>
       </div>
       <div class="work-grid">
         <article class="video-card">
           <div class="video-window">
-            <iframe class="social-frame" title="Recent editing style Reel" src="https://www.instagram.com/reel/Ddy5iNRRRk4/embed/" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            <video controls playsinline preload="metadata" title="Recent editing style 1">
+              <source src="editing-style-1.mp4" type="video/mp4"/>
+              Your browser does not support the video tag.
+            </video>
           </div>
           <div class="video-bottom">
-            <p class="metric">Recent editing style</p>
-            <a href="https://www.instagram.com/reel/Ddy5iNRRRk4/" rel="noopener noreferrer" target="_blank">Watch ↗</a>
+            <p class="metric">Editing style</p>
+            <a href="editing-style-1.mp4" download>Download ↗</a>
+          </div>
+        </article>
+        <article class="video-card">
+          <div class="video-window">
+            <video controls playsinline preload="metadata" title="Recent editing style 2">
+              <source src="editing-style-2.mp4" type="video/mp4"/>
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="video-bottom">
+            <p class="metric">Editing style</p>
+            <a href="editing-style-2.mp4" download>Download ↗</a>
           </div>
         </article>
       </div>

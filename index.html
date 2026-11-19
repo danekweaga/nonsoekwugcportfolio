@@ -87,33 +87,9 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-off
 .brands{padding:48px 0 24px}
 .brands .section-head{text-align:center;margin-bottom:28px}
 .brands-row{display:flex;justify-content:center;align-items:center;gap:28px;flex-wrap:wrap}
-.brand-card{
-  position:relative;
-  display:flex;align-items:center;justify-content:center;
-  padding:0;border:0;background:transparent;min-width:0;
-}
-.brand-logo-btn{
-  display:flex;align-items:center;justify-content:center;
-  padding:0;margin:0;border:0;background:transparent;cursor:pointer;color:inherit;
-  font:inherit;border-radius:10px;
-}
-.brand-logo-btn:hover img{transform:translateY(-2px)}
-.brand-logo-btn:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
-.brand-card img{width:72px;height:72px;object-fit:contain;border-radius:10px;background:#fff;transition:transform .16s}
-.brand-menu{
-  display:none;position:absolute;left:50%;top:calc(100% + 8px);transform:translateX(-50%);
-  z-index:30;min-width:180px;padding:8px;margin:0;list-style:none;
-  background:#fff;border:1px solid var(--line);border-radius:8px;
-  box-shadow:0 10px 28px rgba(37,42,44,.12);
-}
-.brand-card.is-open .brand-menu{display:block}
-.brand-menu a{
-  display:block;padding:12px 14px;border-radius:6px;text-decoration:none;
-  font-size:13px;font-weight:700;color:var(--ink);
-}
-.brand-menu a:hover,.brand-menu a:focus{background:rgba(47,111,106,.1);color:var(--accent)}
-@media(max-width:700px){
-  .brand-menu{left:0;right:0;transform:none;width:auto;min-width:0}
+.brand-logo{
+  display:block;width:72px;height:72px;object-fit:contain;
+  border-radius:10px;background:#fff;pointer-events:none;user-select:none;
 }
 
 .section{padding-top:88px;padding-bottom:72px}
@@ -346,27 +322,10 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-off
       <span class="tiny">Partners</span>
       <h2 style="font-size:clamp(28px,3.5vw,40px);margin:12px 0 0;letter-spacing:-.04em;font-weight:760">Brands I've worked with</h2>
     </div>
-    <div class="brands-row">
-      <div class="brand-card" data-brand="studyfetch">
-        <button type="button" class="brand-logo-btn" aria-expanded="false" aria-controls="menu-studyfetch" aria-haspopup="true" aria-label="StudyFetch profiles">
-          <img src="studyfetch.png" alt="StudyFetch" width="72" height="72"/>
-        </button>
-        <ul class="brand-menu" id="menu-studyfetch" role="menu" hidden>
-          <li role="none"><a role="menuitem" href="https://www.tiktok.com/@nonso.studyfetch" rel="noopener noreferrer" target="_blank">TikTok ↗</a></li>
-        </ul>
-      </div>
-      <div class="brand-card" data-brand="ccn">
-        <button type="button" class="brand-logo-btn" aria-expanded="false" aria-controls="menu-ccn" aria-haspopup="true" aria-label="CCN profiles">
-          <img src="ccn.png" alt="CCN" width="72" height="72"/>
-        </button>
-        <ul class="brand-menu" id="menu-ccn" role="menu" hidden>
-          <li role="none"><a role="menuitem" href="https://www.instagram.com/nonsocollects/" rel="noopener noreferrer" target="_blank">Instagram ↗</a></li>
-          <li role="none"><a role="menuitem" href="https://www.tiktok.com/@nonsocollects" rel="noopener noreferrer" target="_blank">TikTok ↗</a></li>
-        </ul>
-      </div>
-      <div class="brand-card" data-brand="tab">
-        <img src="tab.png" alt="Tab" width="72" height="72"/>
-      </div>
+    <div class="brands-row" aria-label="Brand logos">
+      <img class="brand-logo" src="studyfetch.png" alt="StudyFetch" width="72" height="72"/>
+      <img class="brand-logo" src="ccn.png" alt="CCN" width="72" height="72"/>
+      <img class="brand-logo" src="tab.png" alt="Tab" width="72" height="72"/>
     </div>
   </section>
 
@@ -552,37 +511,6 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-off
   <span>Built to show the work, not invent the numbers.</span>
 </footer>
 <script>
-(function () {
-  var cards = Array.prototype.slice.call(document.querySelectorAll('.brand-card'));
-  function closeAll(except) {
-    cards.forEach(function (card) {
-      if (card === except) return;
-      card.classList.remove('is-open');
-      var btn = card.querySelector('.brand-logo-btn');
-      var menu = card.querySelector('.brand-menu');
-      if (btn) btn.setAttribute('aria-expanded', 'false');
-      if (menu) menu.hidden = true;
-    });
-  }
-  cards.forEach(function (card) {
-    var btn = card.querySelector('.brand-logo-btn');
-    var menu = card.querySelector('.brand-menu');
-    if (!btn || !menu) return;
-    btn.addEventListener('click', function (e) {
-      e.stopPropagation();
-      var open = !card.classList.contains('is-open');
-      closeAll(card);
-      card.classList.toggle('is-open', open);
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      menu.hidden = !open;
-    });
-  });
-  document.addEventListener('click', function () { closeAll(); });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeAll();
-  });
-})();
-
 (function () {
   var root = document.querySelector('[data-ads-slideshow]');
   if (!root) return;
